@@ -1,26 +1,33 @@
 #include <stdio.h>
 
-int main() { 
-    int i,a,b,c;
-    printf("enter .5 to stop. \n");
-    while (i!=.5) {
-        printf("Enter number: \n");
-        scanf("%d",&i);
-    }
-    a=0;
-    b=0;
-    c=0;
-    if(i>0)  {
-        a+=i;
-        printf("positive numbers= %d \n",a);
-    }
-    else if(i==0){
-        b+=i;
-        printf("total zeroes= %d \n",b);
-    }
-    else if(i<0) {
-        c+=i;
-        printf("negative numbers= %d \n,c");
-    }
+int main() {
+    int num;
+    int pos = 0, neg = 0, zero = 0;
+    char choice;
+
+    do {
+        // Input number
+        printf("Enter a number: ");
+        scanf("%d", &num);
+
+        // Count positives, negatives, and zeroes
+        if (num > 0)
+            pos++;
+        else if (num < 0)
+            neg++;
+        else
+            zero++;
+
+        // Ask if user wants to continue
+        printf("Do you want to enter another number? (y/n): ");
+        scanf(" %c", &choice);   // Notice space before %c to consume newline
+
+    } while (choice == 'y' || choice == 'Y');
+
+    // Display results
+    printf("\nCount of Positive numbers: %d\n", pos);
+    printf("Count of Negative numbers: %d\n", neg);
+    printf("Count of Zeroes: %d\n", zero);
+
     return 0;
 }
